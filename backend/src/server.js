@@ -6,8 +6,8 @@ const host = "0.0.0.0";
 app.get("/", (req, res) => {
   res.send("Hello World! -from server");
 });
-app.listen(host, port, () => {
-  console.log(`Server listening at http://${host}:${port}`);
+app.listen(port, host, () => {
+  console.log(`Server listening at http://${port}:${host}`);
 });
 
 module.exports = app;
