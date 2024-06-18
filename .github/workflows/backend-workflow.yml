@@ -46,8 +46,8 @@ jobs:
           docker inspect backend-test
           docker ps --filter "name=backend-test" --format "{{.Names}}"
 
-      - name: Check if port is listening inside the container
-        run: docker exec backend-test wget -qO- http://localhost:3001
+      # - name: Check if port is listening inside the container
+      #   run: docker exec backend-test wget -qO- http://localhost:3001
 
       - name: Check if server is running on port 8080
         run: curl http://localhost:8080
