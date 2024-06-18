@@ -6,7 +6,7 @@ const host = "0.0.0.0";
 app.get("/", (req, res) => {
   res.send("Hello World! -from server");
 });
-app.listen(port, host, () => {
+app.listen(host, port, () => {
   console.log(`Server listening at http://${host}:${port}`);
 });
 
