@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
   res.send("Hello World! -from server");
 });
 app.listen(port, host, () => {
-  console.log(`Server listening at http://${port}:${host}`);
+  console.log(`Server listening at http://${host}:${port}`);
 });
 
 module.exports = app;
