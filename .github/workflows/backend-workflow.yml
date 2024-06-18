@@ -44,6 +44,8 @@ jobs:
         run: |
           docker exec backend-test ps aux
           docker ps -a
+          sudo iptables -L -n
+          sudo iptables -L -n -t nat
           docker ps --filter "name=backend-test" --format "{{.Names}}"
 
       - name: Check if port is listening inside the container
