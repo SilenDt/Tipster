@@ -32,22 +32,13 @@ jobs:
           tags: silendt/nodejs-backend:test
 
       - name: run test container
-        run: | 
-          docker run --name backend-test -d -p 8080:3001 silendt/nodejs-backend:test
-          docker restart backend-test
-
+        run: docker run --name backend-test -d -p 8080:3001 silendt/nodejs-backend:test
 
       - name: wait
         run: sleep 10
 
       - name: Check if container is running
-        run: |
-          docker exec backend-test ps aux
-          docker ps -a
-          docker ps --filter "name=backend-test" --format "{{.Ports}}"
-          docker ps --filter "name=backend-test" --format "{{.Names}}"
-          docker logs backend-test
-
+        run: docker ps --filter "name=backend-test" --format "{{.Names}}"
 
       - name: Check if port is listening inside the container
         run: docker exec backend-test wget -qO- http://localhost:3001
