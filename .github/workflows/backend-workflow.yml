@@ -42,7 +42,7 @@ jobs:
 
       - name: Check if port is listening inside the container
         run: |
-            netstat -tuln
+            docker network inspect bridge
             docker exec backend-test wget -qO- http://localhost:3001
 
       - name: Check if server is running on port 8080
