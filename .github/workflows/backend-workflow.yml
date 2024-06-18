@@ -32,7 +32,10 @@ jobs:
           tags: silendt/nodejs-backend:test
 
       - name: run test container
-        run: docker run --name backend-test -d -p 8080:3001 silendt/nodejs-backend:test
+        run: | 
+          docker run --name backend-test -d -p 8080:3001 silendt/nodejs-backend:test
+          docker restart backend-test
+
 
       - name: wait
         run: sleep 10
