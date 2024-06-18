@@ -39,8 +39,9 @@ jobs:
 
       - name: Check if container is running
         run: |
-          docker exec backend-test ps aux
-          docker logs backend-test
+          docker exec backend-test curl -v http://localhost:3001
+          docker exec backend-test ifconfig
+          docker exec backend-test netstat -tuln
           docker ps --filter "name=backend-test" --format "{{.Names}}"
 
       - name: Check if port is listening inside the container
