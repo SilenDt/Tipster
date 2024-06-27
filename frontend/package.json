@@ -4,12 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start2": "webpack serve --mode development",
-    "build2": "webpack --mode=production",
-    "test2": "echo \"Error: no test specified\" && exit 1",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test"
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",

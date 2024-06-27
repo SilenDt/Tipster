@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import favicon from '../../assets/images/favicon.ico'; // Import the favicon
 
 const NavBar = ({ isLoggedIn }) => {
   return (
@@ -9,7 +8,6 @@ const NavBar = ({ isLoggedIn }) => {
     {/* Left section */}
     <div className="flex items-center space-x-4">
       <Link to="/" className="flex items-center text-white text-lg font-semibold">
-        <img src={favicon} alt="App Logo" className="w-8 h-8 mr-2" />
         App Name
       </Link>
       <input
