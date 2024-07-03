@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import image from '../../assets/images/image.png'
 
 const NavBar = ({ isLoggedIn }) => {
   return (
-    <nav className="bg-gray-800 p-4">
+
+    
+    <nav className="bg-green-300 p-4">
   <div className="container mx-auto flex justify-between items-center">
     {/* Left section */}
     <div className="flex items-center space-x-4">
       <Link to="/" className="flex items-center text-white text-lg font-semibold">
-        App Name
+        <img src={image} alt="App Logo" className="w-8 h-8 mr-2" />
       </Link>
+      
       <input
         type="text"
         placeholder="Search..."
@@ -35,6 +39,8 @@ const NavBar = ({ isLoggedIn }) => {
       )}
     </div>
   </div>
+
+  
 </nav>
 )}
 

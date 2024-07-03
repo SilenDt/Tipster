@@ -1,33 +1,22 @@
 import React from 'react';
+import Header from '../components/Layout/Header';
+import Footer from '../components/Layout/Footer';
+import NavBar from '../components/Layout/NavBar';
 
 const HomePage = () => {
+
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="container mx-auto py-8">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Welcome HOME</h1>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <NavBar />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">About Us</h2>
-            <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac dolor vestibulum, scelerisque odio eget, rutrum elit.</p>
-          </div>
-
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Features</h2>
-            <ul className="list-disc list-inside text-gray-600">
-              <li>Feature 1</li>
-              <li>Feature 2</li>
-              <li>Feature 3</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-8 text-center">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-            Learn More
-          </button>
-        </div>
-      </div>
+      <main className="flex-1 bg-gray-500 p-8">
+        <h1 className="text-4xl text-white font-bold">I am your Home Page</h1>
+        <p className="text-white mt-4">
+          Welcome to your home page content.
+        </p>
+      </main>
+      <Footer />
     </div>
   );
 };
