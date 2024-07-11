@@ -1,22 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import LoginButton from '../Auth/LogInButton';
+import { useAuth0 } from '@auth0/auth0-react';
+import LoginButton from '../Auth/LoginButton';
+import LogoutButton from '../Auth/LogoutButton';
 
 const Header = () => {
+  const { isAuthenticated } = useAuth0();
+
   return (
-    <div className='bg-blue-300'>
-      <header className="border-t-2 border-b-2 border-yellow-500">
-        <nav className="py-4">
-          <ul className="flex justify-center space-x-4">
-            <li><Link to="/" className="text-gray-800 hover:text-blue-500">Home </Link></li>
-            <li><Link to="/profile" className="text-gray-800 hover:text-blue-500">Profile</Link></li>
-            <li><Link to="/logout" className="text-gray-800 hover:text-blue-500">Logout</Link></li>
-            <li><Link to="/practice" className="text-gray-800 hover:text-blue-500">PracticePage</Link></li>
-            <li><LoginButton /></li>
-          </ul>
-        </nav>
-      </header>
-    </div>
+    <header className="bg-gray-800 text-white flex justify-end items-center p-4">
+       <h1 className='flex-grow'>TIPSTER</h1>
+      <div>
+        {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+      </div>
+     
+    </header>
   );
 };
 
