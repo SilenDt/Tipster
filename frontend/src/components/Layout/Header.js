@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoginButton from '../Auth/LogInButton';
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
             <li><Link to="/profile" className="text-gray-800 hover:text-blue-500">Profile</Link></li>
             <li><Link to="/logout" className="text-gray-800 hover:text-blue-500">Logout</Link></li>
             <li><Link to="/practice" className="text-gray-800 hover:text-blue-500">PracticePage</Link></li>
+            <li><LoginButton /></li>
           </ul>
         </nav>
       </header>

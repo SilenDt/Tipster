@@ -1,19 +1,34 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+import React, { useEffect, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-const ProfilePage = () => {
-  const { user, isAuthenticated, loading } = useContext(AuthContext);
+const Profile = () => {
+  const { user, isAuthenticated, isLoading, getIdTokenClaims } = useAuth0();
+  const [idToken, setIdToken] = useState(null);
 
-  if (loading) return <div>Loading...</div>;
-  if (!isAuthenticated) return <div>Please log in to view your profile.</div>;
+  useEffect(() => {
+    const fetchIdToken = async () => {
+      if (isAuthenticated) {
+        const idTokenClaims = await getIdTokenClaims();
+        setIdToken(idTokenClaims.__raw); // __raw contains the actual JWT token
+      }
+    };
+
+    fetchIdToken();
+  }, [isAuthenticated, getIdTokenClaims]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div>
-      <h1>{user.name}'s Profile</h1>
-      <p>Email: {user.email}</p>
-      {/* More profile details here */}
-    </div>
+    isAuthenticated && (
+      <div>
+        <h2>Welcome, {user.name}</h2>
+        <p>Email: {user.email}</p>
+        {idToken && <p>ID Token: {idToken}</p>}
+      </div>
+    )
   );
 };
 
-export default ProfilePage;
+export default Profile;
