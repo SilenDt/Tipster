@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import image from '../../assets/images/image.png'
+import image from '../../assets/images/image.png';
+import { useAuth0 } from '@auth0/auth0-react';
 
-const NavBar = ({ isLoggedIn }) => {
+const NavBar = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+
   return (
-
     <nav className="bg-green-300 w-64 min-h-full p-4">
       {/* Logo and Search */}
       <div className="flex flex-col items-start space-y-4">
@@ -25,17 +27,18 @@ const NavBar = ({ isLoggedIn }) => {
         <li>
           <Link to="/" className="text-white">Home</Link>
         </li>
+        <li><Link to="/practice" className="text-white">PracticePage</Link></li>
         <li>
           <Link to="/profile" className="text-white">Profile</Link>
         </li>
-        {isLoggedIn ? (
+        {isAuthenticated ? (
           <li>
-            <Link to="/logout" className="text-white">Logout</Link>
+            <button onClick={() => logout({ returnTo: window.location.origin })} className="text-white">Logout</button>
           </li>
         ) : (
           <>
             <li>
-              <Link to="/login" className="text-white">Login</Link>
+              <button onClick={() => loginWithRedirect()} className="text-white">Login</button>
             </li>
             <li>
               <Link to="/signup" className="text-white">Sign Up</Link>
@@ -44,6 +47,7 @@ const NavBar = ({ isLoggedIn }) => {
         )}
       </ul>
     </nav>
-)}
+  );
+};
 
 export default NavBar;

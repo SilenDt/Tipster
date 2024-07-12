@@ -1,17 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import RoutesComponent from './routes'; 
-import './index.css';
+import LayoutTemplate from './components/Layout/LayoutTemplate';
 
 const App = () => {
-
   return (
-    <Router>
-      <div className="app">
-        <RoutesComponent />
-      </div>
-
-    </Router>
+    <div className='app'>
+      <LayoutTemplate />
+    </div>
   );
 };
 
